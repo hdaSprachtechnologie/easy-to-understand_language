@@ -1,0 +1,444 @@
+<!-- -----------------------------------ABSTRAKTE SUBSTANTIVE ------------------------------------------  -->
+
+<!-- Vermeidung der Nominalisierung von Verben
+
+Terme im Infinitiv, die nicht klein geschrieben wurden und durch einen Artikel eingeleitet werden -->
+
+<rule id="ABSTRAKTE_SUBSTANTIVIERUNG_EINES_INFINITIVS" name="Abstrakte Substantivierung eines Infinitivs">
+ <pattern>
+  <token postag='(ART|PRO):.+' postag_regexp='yes'></token>
+  <marker>
+  <token postag='.+:INF' postag_regexp='yes'><exception case_sensitive="yes" regexp='yes'>[a-zäöü].+</exception><exception case_sensitive="yes" regexp="yes">
+  Stunden|Tagen|Freunden|Polen|Pflanzen</exception></token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich lese sehr gerne.</example>
+ <example correction=''>Das <marker>Lesen</marker> macht Spaß.</example>
+</rule>
+
+
+<!-- Vermeidung der Nominalisierung von Verben
+
+Verben, die mit typischer Endung für Substantive enden, sollen vermieden werden  -->
+
+<rule id="VERBEN_MIT_TYPISCHER_ENDUNG_FR_SUBSTANTIVE" name="Verben mit typischer Endung für Substantive">
+ <pattern>
+  <marker>
+	<token regexp='yes' postag='.+:INF' postag_regexp='yes' case_sensitive='yes'>[A-ZÄÖÜ].*nahme|.*ung|.*heit|.*keit|.*ion|.*stellen|.*bereiten|.*ücken|.*schalten|.*wählen|.*[Kk]auf|.*montage
+		<exception regexp="yes">Achtung|[Mm]eldung|[Ee]inrichtung|Verfügung|[Bb]eschreibung|[Ll]eistung|[Vv]oraussetzung|[Ss]pannung|[Rr]ichtung|[Bb]ezeichnung|[Ee]ntfernung|[Vv]erbindung|[Ss]tellung|[Bb]edeutung|[Ww]irkung|[Ww]arnung|[Mm]arkierung|Lösung|Ordnung|Fortsetzung|[Aa]usrüstung|[Mm]essung|[Pp]rüfung|[Vv]erpackung|Ausnahme|Inbetriebnahme|[Kk]leidung|[Aa]bbildung|[Aa]nleitung|[Ee]inheit|[Gg]eschwindigkeit|[Hh]aftung|[Hh]eizung|[Ll]eistung|[Ll]eitung|[Ll]üftung|[Mm]ündung|[Pp]ackung|[Rr]ichtung|[Rr]echtschreibung|[Ss]telle|[Ss]icherheit|[Ss]teuerung|[Uu]mgebung|[Vv]ergiftung|[Vv]erordnung|[Ww]ohnung|[Zz]eitung|.*rücken|Rücken|Schnittstellen|Sinneseindrücken|Feuerstellen|Nachkommastellen|Fundstellen|Bezirksverwaltungsstellen|Hauptfürsorgestellen|Sprungstellen|Dienststellen|.*schnittstellen</exception>
+	</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Möchtest du den Kuchen zubereiten?</example>
+ <example correction=''>Möchtest du das Zubereiten des Kuchens übernehmen?</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: zum Abschluss bringen -->
+
+<rule id="FUNKTIONSVERBGEFUEGE_ZUM_ABSCHLUSS_BRINGEN" name="Funktionsverbgefüge: zum Abschluss bringen">
+ <pattern>
+  <marker>
+	<token>zum</token>
+	<token>Abschluss</token>
+	<token>bringen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich möchte das Projekt gerne abschließen.</example>
+ <example correction=''>Ich möchte das Projekt gerne <marker>zum Abschluss bringen</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: zur Sache kommen-->
+
+<rule id="FUNKTIONSVERBGEFUEGE_ZUR_SACHE_KOMMEN" name="Funktionsverbgefüge: zur Sache kommen">
+ <pattern>
+  <marker>
+	<token>zur</token>
+	<token>Sache</token>
+	<token>kommen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich werde jetzt die Hauptaussage nennen.</example>
+ <example correction=''>Ich werde jetzt <marker>zur Sache kommen</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: zur Sprache bringen-->
+<rule id="FUNKTIONSVERBGEFUEGE_ZUR_SPRACHE_BRINGEN" name="Funktionsverbgefüge: zur Sprache bringen">
+ <pattern>
+  <marker>
+	<token>zur</token>
+	<token>Sprache</token>
+	<token>bringen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich werde das Problem ansprechen.</example>
+ <example correction=''>Ich werde das Problem <marker>zur Sprache bringen</marker>.</example>
+</rule>
+
+
+<!-- Vermeidung des Funktionsverbgefüges: zur Anwendung gelangen -->
+<rule id="FUNKTIONSVERBGEFUEGE_ZUR_ANWENDUNG_GELANGEN" name="Funktionsverbgefüge: zur Anwendung gelangen">
+ <pattern>
+  <marker>
+	<token>zur</token>
+	<token>Anwendung</token>
+	<token>gelangen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Das Programm wird nächsten Montag angewendet.</example>
+ <example correction=''>Das Programm wird nächsten Montag <marker>zur Anwendung gelangen</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: Angaben machen -->
+<rule id="FUNKTIONSVERBGEFUEGE_ANGABEN_MACHEN" name="Funktionsverbgefüge: Angaben machen">
+ <pattern>
+  <marker>
+	<token regexp='yes' skip='3'>Angaben</token>
+	<token inflected='yes'>machen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Der Kunde muss für die Ausführung der Überweisung folgendes angeben.</example>
+ <example correction=''>Der Kunde muss für die Ausführung der Überweisung folgende <marker>Angaben</marker> machen.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: machen ... Angaben -->
+<rule id="FUNKTIONSVERBGEFUEGE_MACHEN_ANGABEN" name="Funktionsverbgefüge: machen ... Angaben">
+ <pattern>
+  <marker>
+	<token inflected='yes' skip='10' case_sensitive="no">machen</token>
+	<token regexp='yes'>Angaben</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Geben sie Inforamtionen zu Ihrer Person an.</example>
+ <example correction=''>Machen Sie <marker>Angaben</marker> zu Ihrer Person.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: Bezug herstellen -->
+<rule id="FUNKTIONSVERBGEFUEGE_BEZUG_HERSTELLEN" name="Funktionsverbgefüge: Bezug herstellen">
+ <pattern>
+  	<token inflected='yes' skip='10'>stellen</token>
+	<marker>
+		<token regexp='yes' skip='10'>Bezug</token>
+	</marker>
+	<token regexp='yes'>her</token>
+  </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich möchte sich auf die Geschichte beziehen.</example>
+ <example correction=''>Sie möchte einen <marker>Bezug</marker> zur Geschichte herstellen.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: stellen ... Bezug -->
+<rule id="FUNKTIONSVERBGEFUEGE_STELLEN_BEZUG_HER" name="Funktionsverbgefüge: stellen ... Bezug ... her">
+ <pattern>
+  	<token inflected='yes' skip='10'>stellen</token>
+	<marker>
+		<token regexp='yes' skip='10'>Bezug</token>
+	</marker>
+	<token regexp='yes'>her</token>
+  </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Sie bezog sich auf dich Geschichte.</example>
+ <example correction=''>Sie stellte einen <marker>Bezug</marker> zur Geschichte her.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: Einstellung vornehmen
+
+zu beachten: vornehmen darf nicht als Adjektiv gekennzeichnet (vornehm/vorgenommene) werden und muss inflected sein-->
+<rule id="FUNKTIONSVERBGEFUEGE_EINSTELLUNG_VORNEHMEN" name="Funktionsverbgefüge: Einstellung vornehmen">
+ <pattern>
+  <marker>
+  <token regexp='yes'>Einstellung</token>
+  <token inflected='yes'>vornehmen<exception postag='ADJ:.+' postag_regexp='yes'></exception></token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Er hat den Fernseher eingestellt.</example>
+ <example correction=''>Er hat eine Einstellung vorgenommen.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: vornehmen ... Einstellung
+
+zu beachten: vornehmen darf nicht als Adjektiv gekennzeichnet (vornehm/vorgenommene) werden und muss inflected sein-->
+
+<rule id="FUNKTIONSVERBGEFUEGE_VORNEHMEN_EINSTELLUNG" name="Funktionsverbgefüge: vornehmen ... Einstellung ">
+ <pattern>
+  <marker>
+  <token inflected='yes' skip='10'>nehmen<exception postag='ADJ:.+' postag_regexp='yes'></exception></token>
+  <token regexp='yes'>Einstellung</token>
+    </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Er stellte den Fernseher ein.</example>
+ <example correction=''>Er <marker>nahm eine Einstellung vor</marker> in dem Fernsehr.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: etwas vornehmen -->
+
+<rule id="FUNKTIONSVERBGEFGE_NOMEN_VORNEHMEN" name="Funktionsverbgefüge: Nomen vornehmen">
+ <pattern>
+  <marker>
+  <token postag='SUB:.+' postag_regexp='yes'></token>
+  <token inflected='yes'>vornehmen</token>
+  </marker>
+ </pattern>
+ <message>Satzkombinationen mit vornehmen sind umständlich und sollten vereinfacht werden.</message>
+ <example>Er hat die Datei geändert.</example>
+ <example correction=''>Er hat eine <marker>Änderung vorgenommen</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: Leistung erbringen -->
+
+<rule id="FUNKTIONSVERBGEFUEGE_LEISTUNG_ERBRINGEN" name="Funktionsverbgefüge: Leistung erbringen">
+ <pattern>
+  <marker>
+  <token postag='SUB:.+' postag_regexp='yes'>Leistung</token>
+  <token inflected='yes'>erbringen</token>
+  </marker>
+ </pattern>
+ <message>Satzkombinationen mit vornehmen sind umständlich und sollten vereinfacht werden.</message>
+ <example>Er war im Turnier sehr gut.</example>
+ <example correction=''>Er hat im Turnier eine gute <marker>Leistung erbracht</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: in der Lage sein-->
+
+
+<rule id="FUNKTIONSVERBGEFUEGE_IN_DER_LAGE_SEIN" name="Funktionsverbgefüge: in der Lage sein">
+ <pattern>
+  <marker>
+  <token regexp='yes'>in</token>
+  <token regexp='yes'>der</token>
+  <token regexp='yes' skip='10'>Lage</token>
+  <token inflected='yes'>sein</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Ich glaube nicht, dass er dazu fähig ist.</example>
+ <example correction=''>Ich glaube nicht, dass er dazu <marker>in der Lage ist</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: zur Verfügung stellen -->
+
+<rule id="FUNKTIONSVERBGEFUEGE_ZUR_VERFGUNG_STELLEN" name="Funktionsverbgefüge: Zur Verfügung stellen">
+ <pattern>
+  <marker>
+  <token regexp='yes'>zur</token>
+  <token regexp='yes' skip='10'>Verfügung</token>
+  <token inflected='yes'>stellen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Er hat mir sein Dokument gegeben.</example>
+ <example correction=''>Er hat mir sein Dokument <marker>zur Verfügung gestellt</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: stellen ... Verfügung  -->
+<rule id="FUNKTIONSVERBGEFUEGE_STELLEN_VERFGUNG" name="Funktionsverbgefüge: stellen ... Verfügung">
+ <pattern>
+ <token inflected='yes' skip='5'>stellen</token>
+ <marker>
+	<token regexp='yes'>zur</token>
+	<token regexp='yes'>Verfügung</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Er gab mir sein Dokument.</example>
+ <example correction=''>Er stellte mir sein Dokument <marker>zur Verfügung</marker>.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: bei/durch/unter NOMEN von -->
+
+
+<rule id="FUNKTIONSVERBGEFUEGE_BEIDURCHUNTER_NOMEN_VON" name="Funktionsverbgefüge: bei/durch/unter NOMEN von">
+ <pattern>
+  <marker>
+  <token regexp='yes'>bei|durch|unter</token>
+  <token postag='.+:GEN:.+' postag_regexp='yes'></token>
+  <token regexp='yes'>von</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Sie erstellte mit den Studenten einen Textkorpus.</example>
+ <example correction=''>Sie erstellte einen Textkorpus <marker>unter Beteiligung von Studenten</marker></example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: bei/durch/unter NOMEN Genitiv -->
+
+<rule id="FUNKTIONSVERBGEFUEGE_BEIDURCHUNTER_NOMEN_GENITIV" name="bei/durch/unter NOMEN Genitiv">
+ <pattern>
+  <marker>
+  <token regexp='yes'>bei|durch|unter</token>
+  <token postag='SUB:GEN:.+' postag_regexp='yes' skip='1'></token>
+  <token postag='SUB:.+' postag_regexp='yes' skip='1'></token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Sie erstellte mit den Studenten einen Textkorpus.</example>
+ <example correction=''>Sie erstellte einen Textkorpus unter Beteiligung der Studenten</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: zu Nomen kommen -->
+
+<rule id= "FUNKTIONSVERBGEFUEGE_ZU_NOMEN_KOMMEN"  name="Funktionsverbgefüge: zu Nomen kommen">
+ <pattern>
+ <marker>
+	<token regexp='yes'>zu</token>
+         <token></token>
+         <token inflected='yes'>kommen</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Lass ihn doch bitte aussprechen.</example>
+ <example correction=''>Lass ihn doch bitte <marker>zu Wort kommen</marker>.</example>
+</rule>
+
+
+
+<!-- Regel zur Erkennung von Konjunktionen -->
+<rule id="KONJUNKTIONEN" name="leichte Sprache: Konjunktionen">
+ <pattern>
+  <token inflected='yes' regexp='yes'>aber|als|als dass|als ob|als wenn|ansonsten|statt dass|ausgenommen|außer|außer|wenn|bevor|beziehungsweise|bis|da|damit|dass|denn|desto|doch|entweder|einerseits|falls|indem|sofern|soweit|jedoch|nachdem|obwohl|oder|sonst|um|und|wenn|wobei|woraufhin|zwar</token>
+ </pattern>
+ <message>Sie verwenden eine Konjunktion. Möglicherweise ist dieser Satz zu schwer zu verstehen.
+ </message>
+ <short>Satz vermutlich zu schwer</short>
+ <example>Wir machen Sport. Dann werden wir nicht dick.</example>
+ <example correction="">Wir machen Sport,<marker>damit</marker> wir nicht zu dick werden.</example>
+</rule>
+
+<!-- Regel zur Erkennung von Aufzaehlungen -->
+<rule id="AUFZAEHLUNGEN" name="leichte Sprache: Aufzaehlungen">
+ <pattern>
+ <token>,</token>
+ <token/>
+ <token>,</token>
+ </pattern>
+ <message>Sie machen eine Aufzählung. Möglicherweise ist dieser Satz zu schwer zu verstehen.</message>
+ <short>Satz vermutlich zu schwer</short>
+ <example>Wir essen Eis und Chips. Und Schokolade und Eistee</example>
+ <example correction="">Wir essen Eis<marker>,Chips,</marker>Schokolade und Eistee.</example>
+</rule>
+
+
+
+
+<!-- Vermeidung des Funktionsverbgefüges: zwecks ... -->
+<rule id= "zwecks_Nomen"  name="zwecks Nomen">
+ <pattern>
+ <marker>
+	<token regexp='yes'>[Zz]wecks</token>
+         <token></token>
+  </marker>
+ </pattern>
+ <message>Vermeiden Sie den Ausdruck "zwecks" und ersetzten Sie diesen mit "für".</message>
+ <example>Ich muss für die Abschlussprüfung lernen.</example>
+ <example correction=''>Ich muss <marker>zwecks der</marker> Abschlussprüfung lernen.</example>
+</rule>
+
+
+<!-- Vermeidung des Funktionsverbgefüges: dienen als ... -->
+<rule id="DIENEN_ALS_NOMEN" name="Dienen als Ersatz">
+ <pattern>
+  <marker>
+  <token inflected='yes'>dienen</token>
+  <token regexp='yes' skip='10'>als</token>
+  <token></token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Das Papier kann man ersetzten mit einem neuen Papier.</example>
+ <example correction=''>Das Papier <marker>dient als Ersatz</marker> für ein anderes Papier.</example>
+</rule>
+
+<!-- Vermeidung des Funktionsverbgefüges: dienen zur ... von -->
+<rule id="DIENEN_ZUR_NOMEN_VON" name="Dienen zur XX von">
+ <pattern>
+  <marker>
+  <token inflected='yes'>dienen</token>
+  <token regexp='yes' skip='10'>zur</token>
+  <token></token>
+  <token regexp='yes'>von</token>
+  </marker>
+ </pattern>
+ <message>Abstrakte Substantivierung soll vermieden werden.</message>
+ <example>Der Ventilator wirbelt Wind auf.</example>
+ <example correction=''>Der Ventilator <marker>dient zur Aufwirbelung von</marker> Wind.</example>
+</rule>
+
+
+<!-- Vermeidung des Funktionsverbgefüges: als ... dienen -->
+<rule id="ALS_DIENEN" name="Als dienen">
+ <pattern>
+  <marker>
+  <token regexp='yes'>[Aa]ls</token>
+  <token></token>
+  <token inflected='yes'>dienen</token>
+  </marker>
+ </pattern>
+ <message>Sie können es ersetzten.</message>
+ <example>Sie können es ersetzten.</example>
+ <example correction=''>Sie können <marker>als Ersatz dienen</marker>.</example>
+</rule>
+
+
+<!-- Mitarbeiter-Regel: Mitarbeiter und Mitarbeiterinnen und nicht Mitarbeiterinnen und Mitarbeiter. (Es gibt noch Fehlermeldungen) -->
+
+<rule id="LEICHTE_LESBARKEIT" name="Leichte Lesbarkeit">
+<pattern>
+   <token inflected='yes' regexp='yes'>Mitarbeiterin|Kollegin|Schülerin|Studentin|Bürgerin|Verkäuferin|Kommilitonin</token>
+   <token>und</token>
+</pattern>
+   <message>Schreien Sie zuerst die männliche, dann die webliche Form. Dadurch gewährleisten Sie eine einfach Lesbarkeit.</message>
+    <example correction="">Hallo <marker>Mitarbeiterinnen und</marker> Mitarbeiter.</example>
+</rule>
+
+
+<!-- Metapherregel erweitert (funktioniert noch nicht für alle Metaphern) -->
+<rule id="METAPHERN" name="Leichte Sprache: Metaphern erweitert">
+            <pattern>
+                <token>Bären</token>
+                <token inflected="yes">aufbinden</token>
+            </pattern>
+            <message>Verwenden Sie keine schwierigen Begriffe. Vermeiden Sie Metaphern und bildhafte Sprache.</message>
+            <short>Metaphern vermeiden</short>
+            <example>Sie haben ihm damit geschadet.</example>
+            <example correction="">Sie haben ihm einen <marker>Bären aufgebunden</marker>.</example>
+        </rule>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
