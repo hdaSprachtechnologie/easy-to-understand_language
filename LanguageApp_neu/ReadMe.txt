@@ -2,9 +2,9 @@
 #
 #
 #  Installationsguide für die Language App
-#  Version: Winter-Semester 20/21
+#  
 #
-#  Autor: Pascal F. Fichtner, Kjell Kunz und Florian Heinz
+#  Autor: Pascal F. Fichtner, Kjell Kunz, Florian Heinz und Melanie Siegel
 #
 #
 ############################################
@@ -16,7 +16,6 @@
 #
 ############################################
 - Besuchen Sie die Seite: https://www.python.org/downloads/ und laden Sie sich die aktuellste Pyhton-Version herunter. 
-	- Getestete Versionen: 3.7.6 und 3.8.2 
     	- Tipp: Sollten Sie sich nicht mit Python auskennen und/oder es nicht regelmäßig verwenden, installieren Sie die entsprechende Version nach den vorgegebenen Default-Einstellungen der Installation. Merken Sie sich den Installationspfad. 
 - Installieren Sie dies
 - Während der Installation sollte "Add python to PATH" angekreuzt werden.
@@ -32,7 +31,7 @@
 - Führen Sie das Skript LanguageApp.py aus. Öffnen Sie hierfür die cmd-Line bzw die Python-Kommando-Zeile und geben Sie den Befehle: "python LanguageApp.py" ein
 - Es erscheint eine Fehlermeldung. Grund ist, dass noch nicht alle Pakete installiert wurden.
 - Öffnen Sie die cmd-Line bzw die Python-Kommando-Zeile und geben sie nacheinenander die Befehle: 
-    	- "pip install language_check spacy sumy nltk compound-split" und 
+    	- "pip install language_tool_python spacy sumy nltk compound-split" und 
 	- "python -m spacy download de_core_news_sm" ein.
 
 
